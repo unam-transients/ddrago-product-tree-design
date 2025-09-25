@@ -1,0 +1,230 @@
+\documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+
+\usetikzlibrary{external}
+\tikzexternalize
+\tikzsetexternalprefix{tikzexternal/}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath,amsfonts,amssymb}
+\renewcommand{\baselinestretch}{1.0}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{color, colortbl}
+\definecolor{gray}{gray}{0.75}
+\definecolor{ligray}{gray}{0.9}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\medskipamount}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{newtxtext,newtxmath}
+
+% Instead of the above, use this for arXiv:
+
+%\usepackage{txfonts}
+%\usepackage{textcomp}
+%\usepackage{eurosym}
+%\let\texteuro\euro
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\unit}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\micron}{\mbox{$\mu$m}}
+\renewcommand{\deg}{\mbox{deg}}
+\newcommand{\sqdeg}{\mbox{$\deg^2$}}
+\newcommand{\persqdeg}{\mbox{$\deg^{-2}$}}
+\newcommand{\arcmin}{\mbox{arcmin}}
+\newcommand{\sqarcmin}{\mbox{\arcmin$^2$}}
+\newcommand{\persqarcmin}{\mbox{\arcmin$^{-2}$}}
+\newcommand{\arcsec}{\mbox{arcsec}}
+\newcommand{\sqarcsec}{\mbox{\arcsec$^2$}}
+\newcommand{\persqarcsec}{\mbox{\arcsec$^{-2}$}}
+\newcommand{\sqmm}{\mbox{mm$^2$}}
+\newcommand{\deighty}{\ensuremath{d_{80}}}
+\newcommand{\Hs}{\mbox{$H_\mathrm{s}$}}
+\newcommand{\Ravg}{\mbox{$R_\mathrm{avg}$}}
+\newcommand{\Tavg}{\mbox{$T_\mathrm{avg}$}}
+\newcommand{\mm}{\mbox{mm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{center}
+
+{\Large \bfseries DDRAGO and WOB Product Tree}
+
+\vspace{2cm}
+
+\begin{tabular}{ll}
+Prepared by:&Rosalía Langarica\\
+&Fernando Angeles\\
+&Jorge Fuentes\\
+&Alan M. Watson\\
+Reviewed by:&Alan M. Watson\\
+&Rosalía Langarica\\
+Approved by:&Alan M. Watson\\
+&Rosalía Langarica\\
+Reference:&\\
+Version:& 2.0\\
+Date:&1 February 2022\\
+\end{tabular}
+
+\vspace{\fill}
+
+DDRAGO Project\\
+Instituto de Astronomí­a\\
+Universidad Nacional Autónoma de México
+
+\end{center}
+
+\newpage
+
+\section*{Document Change Record}
+
+\begin{itemize}
+
+\item Version 2.0 of 2 February 2022.
+
+\begin{itemize}
+    \item Update for the CDR of DDRAGO and the WOB combining elements of the previous DDRAGO product tree and the DDRAGUITO product tree.
+\end{itemize}
+
+\item Version 1.0 of 16 September 2017.
+
+\begin{itemize}
+    \item Initial version.
+\end{itemize}
+
+\end{itemize}
+
+\newpage
+
+\section*{Applicable Documents}
+
+\begin{enumerate}[label={AD\arabic*}]
+%\item \label{FPRD} Vives, S., and R\'egal, X., ``Functional and Performance Requirements Documents", GFT-FPRD-Draft-2.0.
+\item \label{optics} Fuentes-Fernández,~J., Watson, A. M., \& Cuevas, S., “COLIBRI Optical Design”, GFT-OD-A3135-040-UNAM-8.0.
+\item \label{aiv} Cuevas, S., Fuentes-Fernández, J.., Watson, A. M., \& Angeles, F., “DDRAGO and WOB AIV Plan”, GFT-PL-A3135-043-UNAM-4,2.
+\item \label{mechanics} Langarica, R., Farah, A., Tinoco. S., Ruíz, J., Fuentes-Fernández, J., Cuevas, S., \& Watson, A. M., “DDRAGO and WOB Mechanical Design”, GFT-MD-A3135-041-UNAM-3.1.
+\end{enumerate}
+
+%\section*{Reference Documents}
+
+%\begin{enumerate}[label={RD\arabic*}]
+%\item \label{butler12} Butler, N. Klein, C., Fox, O., et al.,``First Light with RATIR: An Automated 6-band Optical/NIR Imaging Camera'', {\it Proc. SPIE}, {\bf 8846}, 10 (2012).
+%\item \label{kumler05} Kumler, Jay, ``Designing and Specifying Aspheres for Manufacturability'', {\it Proc. SPIE}, {\bf 5874}, 9 (2005).
+%\item \label{yoder15} Yoder, P. R and Vukobratovich, D., ``Opto-mechanical Systems Design", CRC Press, Fourth Ed., Vol. 1, Section 11.4.3. (2015).
+%\item \label{boccas06} Boccas,~M., Vucina,~T., Araya,~C.; et al.,``Protected-silver coatings for the 8-m Gemini telescope mirror'', {\it Thin Solid Films}, {\bf 502}, 275 (2006).
+%\item \label{leviton15} Leviton, D. B., Miller, K. H., Quijada, M. A., et al., ``Temperature-dependent refractive index measurements of CaF2, Suprasil 3001, and S-FTM16 for the Euclid near-infrared spectrometer and photometer'', {\it Proc. SPIE}, {\bf 9578}, 12 (2015).
+%\item \label{sanchez17} Sánchez, B., Keiman, C., Fuentes-Fernández, J., et al., ``Cryogenic application of an auto-centering mount working at the diffraction limit", {\it Opt. Eng.}, {\bf 56}(3), 034114 (2017).
+%\end{enumerate}
+
+\newpage
+
+\pagestyle{plain}
+
+\tableofcontents
+\newpage
+
+%\listoffigures
+%\newpage
+
+%\listoftables
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\section{Introduction}
+
+This document presents the product tree for DDRAGO and the WOB.
+
+The main primary and secondary categories are:
+\begin{itemize}
+\item DD-OP -- Optics.
+\item DD-ME -- Mechanics.
+\begin{itemize}
+    \item DD-ME-SST –– Support structure
+    \item DD-ME-OM$x$ -- Optomechanics for $x$
+    \item DD-ME-WOB -- WOB
+    \item DD-ME-MH –– Mounting hardware
+    \item DD-ME-MET –– Metrology tools
+\end{itemize}
+\item DD-CO -- Control.
+\begin{itemize}
+    \item DD-CO-CR –– Control room
+    \item DD-CO-CE –– Close electronics
+    \item DD-CO-BDH/RDH –– Blue/red detector head
+    \item DD-CO-BFW/RFW –– Blue/red filter wheel
+    \item DD-CO-WOB-LS –– WOB linear stage
+    \item DD-CO-WOB-SH -- WOB shutter
+\end{itemize}
+\item DD-TE -- Test Equipment.
+\end{itemize}
+
+For the most part, the refinement of the product codes from primary code, secondary code, and tertiary code follows the physical architecture of the instrument. However, there are exceptions:
+
+\begin{enumerate}
+\item
+The optics appear under DD-OP and the optomechanics which support the optics under DD-ME.
+\item
+The detectors are split between DD-OP, DD-ME, and DD-CO. For example, the blue detector is split as follows:
+\begin{itemize}
+\item
+DD-OP-BDET -- The actual CCD
+\item
+DD-OP-BW -- The window before the CCD
+\item
+DD-ME-BDETH -- The detector head supplied by Spectral Instruments. Physically, DD-OP-BDET and DD-OP-BW are components of this, but in the product tree they appear separately.
+\item
+DD-CO-BDET-PC -- The power cable for the detector head.
+\item
+DD-CO-BDET-CF -- The control fibre pair for the detector head.
+\item
+DD-CO-BDET-CSH -- The cryogen supply hose for the detector head.
+\item
+DD-CO-BDET-CRH -- The cryogen return hose for the detector head.
+\end{itemize}
+The red detector is similarly split.
+\item
+The filter wheels are split between DR-OP, DR-ME, and DR-CO. For example, the blue filter wheel is split as follows:
+\begin{itemize}
+\item DD-OP-FL-B -- The $B$ filter.
+\item DD-OP-FL-G -- The $g$ filter.
+\item DD-OP-FL-R -- The $r$ filter.
+\item DD-OP-FL-I -- The $i$ filter.
+\item DD-OP-FL-GRI -- The $gri$ filter.
+\item
+DD-ME-BFW -- The blue filter wheel mechanism supplied by FLI.
+\item
+\item
+DD-CO-BFW-PC -- The power cable for the blue filter wheel.
+\item
+DD-CO-BFW-CC -- The control cable for the blue filter wheel.
+\end{itemize}
+The red filter wheel is similarly split.
+\end{enumerate}
+
+\end{document}
